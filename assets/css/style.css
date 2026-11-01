@@ -1,0 +1,258 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f3f6fc;
+    color: #18243b;
+}
+
+.login-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT SECTION */
+
+.login-left {
+    width: 50%;
+    padding: 45px 65px;
+    background: linear-gradient(145deg, #101e42, #214e91);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    background: #ffffff;
+    color: #214e91;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.welcome-content {
+    max-width: 520px;
+}
+
+.tagline {
+    color: #91c5ff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.welcome-content h1 {
+    font-size: 43px;
+    line-height: 1.25;
+    margin: 22px 0;
+}
+
+.welcome-content p {
+    color: #d2dff3;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.features {
+    margin-top: 30px;
+}
+
+.features div {
+    margin: 15px 0;
+    color: #e1edff;
+    font-size: 14px;
+}
+
+.left-footer {
+    color: #aabbd5;
+    font-size: 12px;
+}
+
+/* RIGHT SECTION */
+
+.login-right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 38px;
+    border-radius: 18px;
+    box-shadow: 0 12px 45px rgba(20, 42, 80, 0.08);
+}
+
+.login-heading {
+    margin-bottom: 28px;
+}
+
+.login-heading h2 {
+    font-size: 27px;
+    margin-bottom: 9px;
+}
+
+.login-heading p {
+    color: #8490a4;
+    font-size: 13px;
+}
+
+form label {
+    display: block;
+    margin: 17px 0 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce3ef;
+    border-radius: 9px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    background: white;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #3478d4;
+    box-shadow: 0 0 0 3px rgba(52, 120, 212, 0.1);
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 18px 0;
+    font-size: 11px;
+    color: #7b8799;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.remember input {
+    width: auto;
+}
+
+form button {
+    width: 100%;
+    padding: 14px;
+    background: #2866c5;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #174c9c;
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: #e04444;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.demo-box {
+    background: #f1f6ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 25px;
+    font-size: 11px;
+    line-height: 1.9;
+    color: #59677d;
+}
+
+.demo-box h4 {
+    color: #2458a0;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.login-footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9aa4b3;
+    margin-top: 22px;
+}
+
+.mobile-brand {
+    display: none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+
+    .login-left {
+        display: none;
+    }
+
+    .login-right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .login-card {
+        max-width: 450px;
+        padding: 28px;
+    }
+
+    .mobile-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        font-size: 22px;
+        margin-bottom: 35px;
+    }
+
+}
+
+@media(max-width: 400px) {
+
+    .login-card {
+        padding: 20px;
+    }
+
+    .login-heading h2 {
+        font-size: 23px;
+    }
+
+}
