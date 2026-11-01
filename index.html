@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSphere | Campus Management</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-left">
+            <div class="brand">
+                <div class="brand-icon">S</div>
+                <span>SmartSphere</span>
+            </div>
+
+            <div class="welcome-content">
+                <span class="tagline">SMART CAMPUS. SMARTER FUTURE.</span>
+
+                <h1>Everything Your Campus Needs, In One Place.</h1>
+
+                <p>
+                    Manage academics, attendance, assignments and
+                    communication through one intelligent campus platform.
+                </p>
+
+                <div class="features">
+                    <div>✓ Smart Attendance Management</div>
+                    <div>✓ Digital Learning Resources</div>
+                    <div>✓ Real-time Campus Updates</div>
+                </div>
+            </div>
+
+            <div class="left-footer">
+                © 2026 SmartSphere. All rights reserved.
+            </div>
+        </div>
+
+        <div class="login-right">
+
+            <div class="login-card">
+
+                <div class="mobile-brand">
+                    <div class="brand-icon">S</div>
+                    <span>SmartSphere</span>
+                </div>
+
+                <div class="login-heading">
+                    <h2>Welcome Back!</h2>
+                    <p>Sign in to access your campus dashboard.</p>
+                </div>
+
+                <form id="loginForm">
+
+                    <label for="role">Login As</label>
+                    <select id="role" required>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="admin">Administrator</option>
+                    </select>
+
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <div class="login-options">
+                        <label class="remember">
+                            <input type="checkbox" id="remember">
+                            Remember me
+                        </label>
+
+                        <span>Campus Portal</span>
+                    </div>
+
+                    <button type="submit" id="loginBtn">
+                        Sign In →
+                    </button>
+
+                    <p id="errorMessage" class="error-message"></p>
+
+                </form>
+
+                <div class="demo-box">
+                    <h4>Demo Credentials</h4>
+                    <p><b>Student:</b> student@campus.com / stud123</p>
+                    <p><b>Teacher:</b> teacher@campus.com / teach123</p>
+                    <p><b>Admin:</b> admin@campus.com / admin123</p>
+                </div>
+
+                <p class="login-footer">
+                    Designed for smarter campus management.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

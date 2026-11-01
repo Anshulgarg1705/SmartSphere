@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | SmartSphere</title>
+
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="admin-brand">
+            <div class="admin-brand-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div>
+                <h2>SmartSphere</h2>
+                <span>Campus Management</span>
+            </div>
+        </div>
+
+        <div class="admin-user">
+            <div class="admin-avatar" id="adminAvatar">AD</div>
+            <div>
+                <h3 id="sidebarAdminName">Administrator</h3>
+                <p>Super Admin</p>
+            </div>
+        </div>
+
+        <nav class="admin-nav">
+
+            <p class="admin-nav-heading">OVERVIEW</p>
+
+            <a href="admin.html" class="active">
+                <i class="fas fa-th-large"></i> Dashboard
+            </a>
+
+            <p class="admin-nav-heading">MANAGEMENT</p>
+
+            <a href="#students">
+                <i class="fas fa-user-graduate"></i> Students
+            </a>
+
+            <a href="#teachers">
+                <i class="fas fa-chalkboard-teacher"></i> Teachers
+            </a>
+
+            <a href="#classes">
+                <i class="fas fa-school"></i> Classes & Sections
+            </a>
+
+            <a href="#departments">
+                <i class="fas fa-building"></i> Departments
+            </a>
+
+            <p class="admin-nav-heading">ACADEMICS</p>
+
+            <a href="attendance.html">
+                <i class="fas fa-calendar-check"></i> Attendance
+            </a>
+
+            <a href="materials.html">
+                <i class="fas fa-book-open"></i> Study Materials
+            </a>
+
+            <a href="assignments.html">
+                <i class="fas fa-file-alt"></i> Assignments
+            </a>
+
+            <p class="admin-nav-heading">SYSTEM</p>
+
+            <a href="#activities">
+                <i class="fas fa-history"></i> Recent Activities
+            </a>
+
+            <a href="#settings">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+
+        </nav>
+
+        <button class="admin-logout" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <!-- TOPBAR -->
+        <header class="admin-topbar">
+
+            <div>
+                <h2>Admin Dashboard</h2>
+                <p>Monitor and manage your entire campus.</p>
+            </div>
+
+            <div class="admin-top-right">
+                <div class="admin-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span id="adminDate"></span>
+                </div>
+
+                <div class="admin-top-avatar" id="topAdminAvatar">AD</div>
+            </div>
+
+        </header>
+
+        <!-- WELCOME BANNER -->
+        <section class="admin-welcome">
+
+            <div>
+                <span class="admin-welcome-tag">ADMINISTRATION PORTAL</span>
+
+                <h1>
+                    Welcome,
+                    <span id="adminName">Administrator</span>!
+                </h1>
+
+                <p>Here's your campus overview and management summary.</p>
+            </div>
+
+            <div class="admin-welcome-icon">
+                <i class="fas fa-chart-pie"></i>
+            </div>
+
+        </section>
+
+        <!-- STATISTICS -->
+        <section class="admin-stats">
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon stat-purple">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+
+                <div>
+                    <p>Total Students</p>
+                    <h2 id="totalStudents">1,250</h2>
+                    <span>Active student accounts</span>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon stat-blue">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+
+                <div>
+                    <p>Total Teachers</p>
+                    <h2 id="totalTeachers">68</h2>
+                    <span>Faculty members</span>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon stat-orange">
+                    <i class="fas fa-school"></i>
+                </div>
+
+                <div>
+                    <p>Total Classes</p>
+                    <h2 id="totalClasses">32</h2>
+                    <span>Across all sections</span>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon stat-green">
+                    <i class="fas fa-user-check"></i>
+                </div>
+
+                <div>
+                    <p>Today's Attendance</p>
+                    <h2>92%</h2>
+                    <span>Campus attendance rate</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- QUICK MANAGEMENT -->
+        <section class="admin-section">
+
+            <div class="admin-section-heading">
+                <div>
+                    <h2>Quick Management</h2>
+                    <p>Frequently used administration tools.</p>
+                </div>
+            </div>
+
+            <div class="admin-quick-actions">
+
+                <button type="button" class="admin-action-card" id="addStudentBtn">
+                    <span class="admin-action-icon action-purple">
+                        <i class="fas fa-user-plus"></i>
+                    </span>
+
+                    <span>
+                        <strong>Add Student</strong>
+                        <small>Create a student record</small>
+                    </span>
+
+                    <i class="fas fa-arrow-right action-arrow"></i>
+                </button>
+
+                <button type="button" class="admin-action-card" id="addTeacherBtn">
+                    <span class="admin-action-icon action-blue">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </span>
+
+                    <span>
+                        <strong>Add Teacher</strong>
+                        <small>Create a faculty record</small>
+                    </span>
+
+                    <i class="fas fa-arrow-right action-arrow"></i>
+                </button>
+
+                <button type="button" class="admin-action-card" id="addClassBtn">
+                    <span class="admin-action-icon action-orange">
+                        <i class="fas fa-plus-circle"></i>
+                    </span>
+
+                    <span>
+                        <strong>Add Class</strong>
+                        <small>Create a new class and section</small>
+                    </span>
+
+                    <i class="fas fa-arrow-right action-arrow"></i>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- STUDENT MANAGEMENT -->
+        <section class="admin-panel" id="students">
+
+            <div class="admin-panel-heading">
+                <div>
+                    <h2>Student Management</h2>
+                    <p>View and manage registered students.</p>
+                </div>
+
+                <button type="button" class="admin-primary-btn" id="studentPanelAddBtn">
+                    <i class="fas fa-plus"></i> Add Student
+                </button>
+            </div>
+
+            <div class="admin-table-wrapper">
+
+                <table class="admin-table">
+
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Student ID</th>
+                            <th>Class</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody">
+
+                        <tr>
+                            <td>
+                                <div class="admin-person">
+                                    <div class="person-avatar person-purple">RS</div>
+                                    <strong>Rahul Sharma</strong>
+                                </div>
+                            </td>
+
+                            <td>STU1001</td>
+                            <td>10 - A</td>
+                            <td>rahul@campus.com</td>
+
+                            <td>
+                                <span class="admin-status active-status">
+                                    Active
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="admin-person">
+                                    <div class="person-avatar person-blue">PS</div>
+                                    <strong>Priya Singh</strong>
+                                </div>
+                            </td>
+
+                            <td>STU1002</td>
+                            <td>10 - B</td>
+                            <td>priya@campus.com</td>
+
+                            <td>
+                                <span class="admin-status active-status">
+                                    Active
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="admin-person">
+                                    <div class="person-avatar person-orange">AK</div>
+                                    <strong>Arjun Kumar</strong>
+                                </div>
+                            </td>
+
+                            <td>STU1003</td>
+                            <td>9 - A</td>
+                            <td>arjun@campus.com</td>
+
+                            <td>
+                                <span class="admin-status inactive-status">
+                                    Inactive
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- TEACHER MANAGEMENT -->
+        <section class="admin-panel" id="teachers">
+
+            <div class="admin-panel-heading">
+                <div>
+                    <h2>Teacher Management</h2>
+                    <p>Faculty members and department assignments.</p>
+                </div>
+
+                <button type="button" class="admin-primary-btn" id="teacherPanelAddBtn">
+                    <i class="fas fa-plus"></i> Add Teacher
+                </button>
+            </div>
+
+            <div class="admin-table-wrapper">
+
+                <table class="admin-table">
+
+                    <thead>
+                        <tr>
+                            <th>Teacher</th>
+                            <th>Faculty ID</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="teacherTableBody">
+
+                        <tr>
+                            <td>
+                                <div class="admin-person">
+                                    <div class="person-avatar person-blue">AV</div>
+                                    <strong>Amit Verma</strong>
+                                </div>
+                            </td>
+
+                            <td>FAC2001</td>
+                            <td>Computer Science</td>
+                            <td>amit@campus.com</td>
+
+                            <td>
+                                <span class="admin-status active-status">
+                                    Active
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="admin-person">
+                                    <div class="person-avatar person-purple">SM</div>
+                                    <strong>Sunita Mehta</strong>
+                                </div>
+                            </td>
+
+                            <td>FAC2002</td>
+                            <td>Mathematics</td>
+                            <td>sunita@campus.com</td>
+
+                            <td>
+                                <span class="admin-status active-status">
+                                    Active
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="admin-person">
+                                    <div class="person-avatar person-orange">RK</div>
+                                    <strong>Rohit Kumar</strong>
+                                </div>
+                            </td>
+
+                            <td>FAC2003</td>
+                            <td>Physics</td>
+                            <td>rohit@campus.com</td>
+
+                            <td>
+                                <span class="admin-status active-status">
+                                    Active
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- CLASSES AND DEPARTMENTS -->
+        <section class="admin-two-columns">
+
+            <div class="admin-panel" id="classes">
+
+                <div class="admin-panel-heading">
+                    <div>
+                        <h2>Classes & Sections</h2>
+                        <p>Academic class distribution.</p>
+                    </div>
+                </div>
+
+                <div class="admin-class-row">
+                    <div class="class-color class-color-one">10</div>
+
+                    <div class="admin-class-info">
+                        <strong>Class 10</strong>
+                        <span>4 Sections · 160 Students</span>
+                    </div>
+
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+                <div class="admin-class-row">
+                    <div class="class-color class-color-two">9</div>
+
+                    <div class="admin-class-info">
+                        <strong>Class 9</strong>
+                        <span>4 Sections · 150 Students</span>
+                    </div>
+
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+                <div class="admin-class-row">
+                    <div class="class-color class-color-three">8</div>
+
+                    <div class="admin-class-info">
+                        <strong>Class 8</strong>
+                        <span>4 Sections · 145 Students</span>
+                    </div>
+
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </div>
+
+            <div class="admin-panel" id="departments">
+
+                <div class="admin-panel-heading">
+                    <div>
+                        <h2>Departments</h2>
+                        <p>Campus academic departments.</p>
+                    </div>
+                </div>
+
+                <div class="admin-department-row">
+                    <i class="fas fa-laptop-code department-icon department-purple"></i>
+
+                    <div>
+                        <strong>Computer Science</strong>
+                        <span>12 Faculty Members</span>
+                    </div>
+                </div>
+
+                <div class="admin-department-row">
+                    <i class="fas fa-calculator department-icon department-blue"></i>
+
+                    <div>
+                        <strong>Mathematics</strong>
+                        <span>10 Faculty Members</span>
+                    </div>
+                </div>
+
+                <div class="admin-department-row">
+                    <i class="fas fa-atom department-icon department-orange"></i>
+
+                    <div>
+                        <strong>Science</strong>
+                        <span>15 Faculty Members</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RECENT ACTIVITIES -->
+        <section class="admin-panel admin-activity-panel" id="activities">
+
+            <div class="admin-panel-heading">
+                <div>
+                    <h2>Recent Activities</h2>
+                    <p>Latest campus administration updates.</p>
+                </div>
+
+                <i class="fas fa-history admin-heading-icon"></i>
+            </div>
+
+            <div class="admin-activity">
+
+                <div class="activity-icon activity-green">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+
+                <div>
+                    <strong>New student registered</strong>
+                    <p>Rahul Sharma was added to Class 10-A.</p>
+                    <small>Today · 09:30 AM</small>
+                </div>
+
+            </div>
+
+            <div class="admin-activity">
+
+                <div class="activity-icon activity-blue">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+
+                <div>
+                    <strong>Teacher account created</strong>
+                    <p>A new faculty account was created.</p>
+                    <small>Today · 10:15 AM</small>
+                </div>
+
+            </div>
+
+            <div class="admin-activity">
+
+                <div class="activity-icon activity-orange">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+
+                <div>
+                    <strong>Campus announcement published</strong>
+                    <p>Internal assessment notification was published.</p>
+                    <small>Yesterday · 02:00 PM</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SYSTEM INFORMATION -->
+        <section class="admin-panel admin-settings-panel" id="settings">
+
+            <div class="admin-panel-heading">
+                <div>
+                    <h2>System Information</h2>
+                    <p>SmartSphere prototype details.</p>
+                </div>
+
+                <i class="fas fa-cog admin-heading-icon"></i>
+            </div>
+
+            <div class="admin-setting-row">
+                <span>Application</span>
+                <strong>SmartSphere</strong>
+            </div>
+
+            <div class="admin-setting-row">
+                <span>Academic Session</span>
+                <strong>2026–2027</strong>
+            </div>
+
+            <div class="admin-setting-row">
+                <span>Account Role</span>
+                <strong>Administrator</strong>
+            </div>
+
+            <div class="admin-setting-row">
+                <span>Prototype Storage</span>
+                <strong>Browser LocalStorage</strong>
+            </div>
+
+        </section>
+
+        <footer class="admin-footer">
+            © 2026 SmartSphere Campus Management System. All rights reserved.
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- ADD RECORD MODAL -->
+<div class="admin-modal" id="adminModal" hidden>
+
+    <div class="admin-modal-content">
+
+        <div class="admin-modal-heading">
+
+            <div>
+                <h2 id="modalTitle">Add Student</h2>
+                <p id="modalDescription">Enter the details below.</p>
+            </div>
+
+            <button type="button" class="admin-modal-close" id="closeModalBtn">
+                <i class="fas fa-times"></i>
+            </button>
+
+        </div>
+
+        <form id="adminRecordForm">
+
+            <input type="hidden" id="recordType">
+
+            <!-- STUDENT AND TEACHER PERSONAL INFORMATION -->
+            <div id="personFields">
+
+                <label for="recordName">Full Name</label>
+                <input
+                    type="text"
+                    id="recordName"
+                    placeholder="Enter full name"
+                >
+
+                <label for="recordEmail">Email Address</label>
+                <input
+                    type="email"
+                    id="recordEmail"
+                    placeholder="Enter email address"
+                >
+
+            </div>
+
+            <!-- STUDENT ONLY -->
+            <div id="studentClassField" hidden>
+
+                <label for="recordClass">Class / Section</label>
+                <input
+                    type="text"
+                    id="recordClass"
+                    placeholder="Example: 10-A"
+                >
+
+            </div>
+
+            <!-- TEACHER ONLY -->
+            <div id="teacherDepartmentField" hidden>
+
+                <label for="recordDepartment">Department</label>
+                <input
+                    type="text"
+                    id="recordDepartment"
+                    placeholder="Example: Computer Science"
+                >
+
+            </div>
+
+            <!-- CLASS ONLY -->
+            <div id="classNameField" hidden>
+
+                <label for="newClassName">Class Name</label>
+                <input
+                    type="text"
+                    id="newClassName"
+                    placeholder="Example: Class 10"
+                >
+
+                <label for="newSectionName">Section</label>
+                <input
+                    type="text"
+                    id="newSectionName"
+                    placeholder="Example: A"
+                >
+
+            </div>
+
+            <button type="submit" class="admin-primary-btn admin-submit-btn">
+                <i class="fas fa-save"></i> Save Record
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script src="assets/js/app.js"></script>
+<script src="assets/js/admin.js"></script>
+
+</body>
+</html>

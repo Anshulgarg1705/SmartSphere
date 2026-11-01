@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | SmartSphere</title>
+
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="teacher-layout">
+
+    <!-- Sidebar -->
+    <aside class="teacher-sidebar">
+        <div class="teacher-brand">
+            <div class="teacher-brand-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+                <h2>SmartSphere</h2>
+                <span>Campus Management</span>
+            </div>
+        </div>
+
+        <div class="teacher-profile">
+            <div class="teacher-profile-avatar" id="teacherAvatar">AV</div>
+            <div>
+                <h3 id="sidebarTeacherName">Teacher</h3>
+                <p>Faculty Account</p>
+            </div>
+        </div>
+
+        <nav class="teacher-nav">
+            <p class="teacher-nav-heading">MAIN MENU</p>
+
+            <a href="teacher.html" class="active">
+                <i class="fas fa-th-large"></i> Dashboard
+            </a>
+            <a href="attendance.html">
+                <i class="fas fa-calendar-check"></i> Attendance
+            </a>
+            <a href="materials.html">
+                <i class="fas fa-book-open"></i> Study Materials
+            </a>
+            <a href="assignments.html">
+                <i class="fas fa-file-alt"></i> Assignments
+            </a>
+
+            <p class="teacher-nav-heading">CAMPUS</p>
+
+            <a href="#classes">
+                <i class="fas fa-chalkboard"></i> My Classes
+            </a>
+            <a href="#announcements">
+                <i class="fas fa-bullhorn"></i> Announcements
+            </a>
+            <a href="#profile">
+                <i class="fas fa-user-circle"></i> My Profile
+            </a>
+        </nav>
+
+        <button class="teacher-logout" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="teacher-main">
+
+        <header class="teacher-topbar">
+            <div>
+                <h2>Teacher Dashboard</h2>
+                <p>Manage your classes and academic activities.</p>
+            </div>
+
+            <div class="teacher-topbar-right">
+                <div class="teacher-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span id="currentDate"></span>
+                </div>
+                <div class="teacher-top-avatar" id="topTeacherAvatar">AV</div>
+            </div>
+        </header>
+
+        <!-- Welcome -->
+        <section class="teacher-welcome">
+            <div>
+                <span class="teacher-welcome-tag">FACULTY PORTAL</span>
+                <h1>Welcome back, <span id="teacherName">Teacher</span>!</h1>
+                <p>Here's what's happening with your classes today.</p>
+            </div>
+            <div class="teacher-welcome-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="teacher-stats">
+            <div class="teacher-stat-card">
+                <div class="teacher-stat-icon purple">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <p>Total Students</p>
+                    <h2>120</h2>
+                    <span>Across all classes</span>
+                </div>
+            </div>
+
+            <div class="teacher-stat-card">
+                <div class="teacher-stat-icon blue">
+                    <i class="fas fa-chalkboard"></i>
+                </div>
+                <div>
+                    <p>My Classes</p>
+                    <h2>4</h2>
+                    <span>Active sections</span>
+                </div>
+            </div>
+
+            <div class="teacher-stat-card">
+                <div class="teacher-stat-icon orange">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div>
+                    <p>Assignments</p>
+                    <h2>8</h2>
+                    <span>3 awaiting review</span>
+                </div>
+            </div>
+
+            <div class="teacher-stat-card">
+                <div class="teacher-stat-icon green">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div>
+                    <p>Today's Classes</p>
+                    <h2>5</h2>
+                    <span>2 completed</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="teacher-section">
+            <div class="teacher-section-heading">
+                <div>
+                    <h2>Quick Actions</h2>
+                    <p>Access your frequently used tools.</p>
+                </div>
+            </div>
+
+            <div class="teacher-actions">
+                <a href="attendance.html" class="teacher-action-card">
+                    <div class="teacher-action-icon action-blue">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div>
+                        <h3>Mark Attendance</h3>
+                        <p>Record student attendance</p>
+                    </div>
+                    <i class="fas fa-arrow-right action-arrow"></i>
+                </a>
+
+                <a href="materials.html" class="teacher-action-card">
+                    <div class="teacher-action-icon action-purple">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Upload Materials</h3>
+                        <p>Share notes and resources</p>
+                    </div>
+                    <i class="fas fa-arrow-right action-arrow"></i>
+                </a>
+
+                <a href="assignments.html" class="teacher-action-card">
+                    <div class="teacher-action-icon action-orange">
+                        <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div>
+                        <h3>Manage Assignments</h3>
+                        <p>Create and review assignments</p>
+                    </div>
+                    <i class="fas fa-arrow-right action-arrow"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Classes and Schedule -->
+        <section class="teacher-content-grid" id="classes">
+
+            <div class="teacher-panel">
+                <div class="teacher-panel-heading">
+                    <div>
+                        <h2>My Classes</h2>
+                        <p>Your assigned classes and subjects</p>
+                    </div>
+                    <span class="teacher-panel-label">4 Classes</span>
+                </div>
+
+                <div class="teacher-class-item">
+                    <div class="teacher-subject-icon subject-one">CS</div>
+                    <div class="teacher-class-info">
+                        <h3>Computer Science</h3>
+                        <p>Class 10 - Section A</p>
+                    </div>
+                    <span class="teacher-student-count">35 Students</span>
+                </div>
+
+                <div class="teacher-class-item">
+                    <div class="teacher-subject-icon subject-two">IT</div>
+                    <div class="teacher-class-info">
+                        <h3>Information Technology</h3>
+                        <p>Class 10 - Section B</p>
+                    </div>
+                    <span class="teacher-student-count">30 Students</span>
+                </div>
+
+                <div class="teacher-class-item">
+                    <div class="teacher-subject-icon subject-three">CS</div>
+                    <div class="teacher-class-info">
+                        <h3>Computer Science</h3>
+                        <p>Class 9 - Section A</p>
+                    </div>
+                    <span class="teacher-student-count">28 Students</span>
+                </div>
+
+                <div class="teacher-class-item">
+                    <div class="teacher-subject-icon subject-four">IT</div>
+                    <div class="teacher-class-info">
+                        <h3>Information Technology</h3>
+                        <p>Class 9 - Section B</p>
+                    </div>
+                    <span class="teacher-student-count">27 Students</span>
+                </div>
+            </div>
+
+            <div class="teacher-panel">
+                <div class="teacher-panel-heading">
+                    <div>
+                        <h2>Today's Schedule</h2>
+                        <p>Your class timetable</p>
+                    </div>
+                    <i class="far fa-clock schedule-heading-icon"></i>
+                </div>
+
+                <div class="teacher-schedule-item">
+                    <div class="schedule-time">09:00<br><span>AM</span></div>
+                    <div class="schedule-detail">
+                        <h3>Computer Science</h3>
+                        <p>Class 10 - A | Room 204</p>
+                    </div>
+                    <span class="schedule-status completed">Done</span>
+                </div>
+
+                <div class="teacher-schedule-item">
+                    <div class="schedule-time">10:00<br><span>AM</span></div>
+                    <div class="schedule-detail">
+                        <h3>Information Technology</h3>
+                        <p>Class 10 - B | Room 105</p>
+                    </div>
+                    <span class="schedule-status ongoing">Next</span>
+                </div>
+
+                <div class="teacher-schedule-item">
+                    <div class="schedule-time">11:30<br><span>AM</span></div>
+                    <div class="schedule-detail">
+                        <h3>Computer Science</h3>
+                        <p>Class 9 - A | Room 204</p>
+                    </div>
+                    <span class="schedule-status upcoming">Upcoming</span>
+                </div>
+
+                <div class="teacher-schedule-item">
+                    <div class="schedule-time">01:00<br><span>PM</span></div>
+                    <div class="schedule-detail">
+                        <h3>Information Technology</h3>
+                        <p>Class 9 - B | Room 105</p>
+                    </div>
+                    <span class="schedule-status upcoming">Upcoming</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Announcements and Profile -->
+        <section class="teacher-content-grid teacher-bottom-grid">
+
+            <div class="teacher-panel" id="announcements">
+                <div class="teacher-panel-heading">
+                    <div>
+                        <h2>Campus Announcements</h2>
+                        <p>Latest updates from administration</p>
+                    </div>
+                    <i class="fas fa-bullhorn schedule-heading-icon"></i>
+                </div>
+
+                <div class="teacher-announcement">
+                    <span class="announcement-dot"></span>
+                    <div>
+                        <h3>Faculty Meeting</h3>
+                        <p>All faculty members are requested to attend the meeting in the conference hall.</p>
+                        <small>November 3, 2026</small>
+                    </div>
+                </div>
+
+                <div class="teacher-announcement">
+                    <span class="announcement-dot orange-dot"></span>
+                    <div>
+                        <h3>Internal Assessment</h3>
+                        <p>Submit the internal assessment marks before the scheduled deadline.</p>
+                        <small>November 6, 2026</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-panel" id="profile">
+                <div class="teacher-panel-heading">
+                    <div>
+                        <h2>My Profile</h2>
+                        <p>Your account information</p>
+                    </div>
+                    <i class="fas fa-user-circle schedule-heading-icon"></i>
+                </div>
+
+                <div class="teacher-profile-details">
+                    <div class="profile-detail-row">
+                        <span>Name</span>
+                        <strong id="profileTeacherName">Teacher</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span>Email</span>
+                        <strong id="profileTeacherEmail">teacher@campus.com</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span>Role</span>
+                        <strong>Faculty / Teacher</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span>Department</span>
+                        <strong>Computer Science</strong>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="teacher-footer">
+            © 2026 SmartSphere Campus Management System. All rights reserved.
+        </footer>
+
+    </main>
+</div>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/teacher.js"></script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartSphere | Student Dashboard</title>
+
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">S</div>
+            <span>SmartSphere</span>
+        </div>
+
+        <div class="menu-heading">MAIN MENU</div>
+
+        <nav>
+            <a href="student.html" class="nav-link active">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+
+            <a href="attendance.html" class="nav-link">
+                <i class="fa-solid fa-calendar-check"></i> Attendance
+            </a>
+
+            <a href="materials.html" class="nav-link">
+                <i class="fa-solid fa-book-open"></i> Study Materials
+            </a>
+
+            <a href="assignments.html" class="nav-link">
+                <i class="fa-solid fa-file-lines"></i> Assignments
+            </a>
+
+            <a href="#timetable" class="nav-link">
+                <i class="fa-solid fa-calendar-days"></i> Timetable
+            </a>
+
+            <a href="#announcements" class="nav-link">
+                <i class="fa-solid fa-bullhorn"></i> Announcements
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#profile" class="nav-link">
+                <i class="fa-solid fa-user"></i> My Profile
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <h2>Student Dashboard</h2>
+                <p>Welcome to your academic workspace.</p>
+            </div>
+
+            <div class="top-actions">
+                <button class="icon-btn" title="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="profile-mini">
+                    <div class="avatar">RS</div>
+                    <div>
+                        <strong id="topStudentName">Rahul Sharma</strong>
+                        <small>Student</small>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME BANNER -->
+        <section class="welcome-banner">
+
+            <div>
+                <span class="welcome-label">SMARTER LEARNING STARTS HERE</span>
+
+                <h1 id="welcomeName">Hello, Rahul! 👋</h1>
+
+                <p>
+                    Stay organized, track your academic progress
+                    and make every day count.
+                </p>
+
+                <a href="materials.html" class="banner-btn">
+                    Explore Study Materials <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="banner-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div>
+                    <p>Attendance</p>
+                    <h2>85%</h2>
+                    <small class="positive">Good attendance</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+                <div>
+                    <p>Total Assignments</p>
+                    <h2>12</h2>
+                    <small>8 completed</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                    <p>Pending Tasks</p>
+                    <h2>04</h2>
+                    <small class="warning">Requires attention</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div>
+                    <p>Study Materials</p>
+                    <h2>24</h2>
+                    <small>Available resources</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- CONTENT GRID -->
+        <section class="content-grid">
+
+            <!-- ATTENDANCE -->
+            <div class="panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Attendance Overview</h3>
+                        <p>Your overall academic attendance</p>
+                    </div>
+                    <a href="attendance.html">View All</a>
+                </div>
+
+                <div class="attendance-display">
+
+                    <div class="progress-circle">
+                        <div class="progress-inner">
+                            <strong>85%</strong>
+                            <small>Attendance</small>
+                        </div>
+                    </div>
+
+                    <div class="attendance-info">
+                        <div>
+                            <span class="legend-dot green-dot"></span>
+                            Present: <strong>85 Days</strong>
+                        </div>
+
+                        <div>
+                            <span class="legend-dot red-dot"></span>
+                            Absent: <strong>15 Days</strong>
+                        </div>
+
+                        <p>Minimum required attendance: 75%</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- UPCOMING REMINDERS -->
+            <div class="panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Upcoming Reminders</h3>
+                        <p>Don't miss important deadlines</p>
+                    </div>
+                    <i class="fa-regular fa-bell panel-symbol"></i>
+                </div>
+
+                <div class="reminder-item">
+                    <div class="date-box">
+                        <strong>05</strong>
+                        <small>NOV</small>
+                    </div>
+                    <div>
+                        <strong>DBMS Assignment</strong>
+                        <p>Submission deadline</p>
+                    </div>
+                </div>
+
+                <div class="reminder-item">
+                    <div class="date-box orange-date">
+                        <strong>08</strong>
+                        <small>NOV</small>
+                    </div>
+                    <div>
+                        <strong>Java Practical</strong>
+                        <p>Lab examination</p>
+                    </div>
+                </div>
+
+                <div class="reminder-item">
+                    <div class="date-box purple-date">
+                        <strong>12</strong>
+                        <small>NOV</small>
+                    </div>
+                    <div>
+                        <strong>Internal Assessment</strong>
+                        <p>Mid-term examination</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOTTOM GRID -->
+        <section class="content-grid bottom-grid">
+
+            <!-- TIMETABLE -->
+            <div class="panel" id="timetable">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Today's Timetable</h3>
+                        <p>Your scheduled classes</p>
+                    </div>
+                    <i class="fa-regular fa-calendar panel-symbol"></i>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Faculty</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>09:00 AM</td>
+                                <td>Data Structures</td>
+                                <td>Mr. Amit</td>
+                                <td>204</td>
+                            </tr>
+
+                            <tr>
+                                <td>10:00 AM</td>
+                                <td>DBMS</td>
+                                <td>Ms. Priya</td>
+                                <td>105</td>
+                            </tr>
+
+                            <tr>
+                                <td>11:00 AM</td>
+                                <td>Java Programming</td>
+                                <td>Mr. Rahul</td>
+                                <td>Lab 2</td>
+                            </tr>
+
+                            <tr>
+                                <td>12:00 PM</td>
+                                <td>Computer Networks</td>
+                                <td>Mr. Anil</td>
+                                <td>301</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+            <!-- ANNOUNCEMENTS -->
+            <div class="panel" id="announcements">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Latest Announcements</h3>
+                        <p>Updates from your college</p>
+                    </div>
+                    <i class="fa-solid fa-bullhorn panel-symbol"></i>
+                </div>
+
+                <div class="announcement">
+                    <span class="announcement-tag">IMPORTANT</span>
+                    <h4>Internal Examination Schedule</h4>
+                    <p>Internal examinations will begin soon. Check the academic schedule.</p>
+                    <small>Academic Department</small>
+                </div>
+
+                <div class="announcement">
+                    <span class="announcement-tag blue-tag">GENERAL</span>
+                    <h4>Library Timings Updated</h4>
+                    <p>The library will remain open until 5:00 PM on weekdays.</p>
+                    <small>College Administration</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer class="dashboard-footer">
+            © 2026 SmartSphere | Smart Campus Management System
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/student.js"></script>
+
+</body>
+</html>
