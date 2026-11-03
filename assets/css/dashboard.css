@@ -2282,3 +2282,69 @@ td {
 .admin-modal-open {
     overflow: hidden;
 }
+
+/* Teacher Student Directory */
+
+.student-directory-controls {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.student-directory-controls input,
+.student-directory-controls select {
+    padding: 12px 14px;
+    border: 1px solid #e2e5ec;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.student-directory-controls input {
+    flex: 1;
+    min-width: 220px;
+}
+
+.student-directory-controls select {
+    min-width: 180px;
+}
+
+.student-directory-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.student-directory-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.student-directory-table th,
+.student-directory-table td {
+    padding: 15px;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 14px;
+}
+
+.student-directory-table th {
+    color: #697386;
+    background: #f8f9fc;
+    font-weight: 600;
+}
+
+.student-directory-table td {
+    color: #333b4f;
+}
+
+.student-directory-table tbody tr:hover {
+    background: #f8faff;
+}
+
+.student-directory-empty {
+    text-align: center;
+    padding: 25px !important;
+    color: #8992a3 !important;
+}
