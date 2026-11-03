@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management | SmartSphere</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6fb;
+            color: #252b42;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #171b35;
+            color: white;
+            padding: 25px 18px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .brand-icon {
+            background: #7164e8;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .brand h2 {
+            font-size: 21px;
+        }
+
+        .brand span {
+            color: #aeb4d0;
+            font-size: 11px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 8px;
+            border-top: 1px solid #333854;
+            border-bottom: 1px solid #333854;
+            margin-bottom: 25px;
+        }
+
+        .avatar {
+            background: #7164e8;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .profile h3 {
+            font-size: 14px;
+        }
+
+        .profile p {
+            color: #aeb4d0;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .nav-title {
+            color: #9299ba;
+            font-size: 11px;
+            margin: 10px 8px;
+        }
+
+        .nav a {
+            display: block;
+            text-decoration: none;
+            color: #c7cbe0;
+            padding: 13px;
+            border-radius: 8px;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        .nav a i {
+            width: 25px;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: #7164e8;
+            color: white;
+        }
+
+        .logout {
+            margin-top: auto;
+            padding: 13px;
+            border: none;
+            background: #292e4d;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .logout:hover {
+            background: #3a4167;
+        }
+
+        .main {
+            flex: 1;
+            padding: 30px;
+            min-width: 0;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .topbar h1 {
+            font-size: 27px;
+        }
+
+        .topbar p {
+            color: #858ba3;
+            margin-top: 6px;
+        }
+
+        .date {
+            background: white;
+            padding: 12px 17px;
+            border-radius: 9px;
+            box-shadow: 0 2px 12px #1820440c;
+            font-size: 13px;
+        }
+
+        .welcome {
+            background: linear-gradient(110deg, #6559d9, #9184f4);
+            color: white;
+            padding: 27px;
+            border-radius: 13px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .welcome h2 {
+            margin: 10px 0;
+        }
+
+        .welcome p {
+            color: #e8e5ff;
+            font-size: 14px;
+        }
+
+        .welcome i {
+            font-size: 55px;
+            opacity: .7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 17px;
+            margin-bottom: 25px;
+        }
+
+        .stat,
+        .panel {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 3px 15px #1820440b;
+        }
+
+        .stat p {
+            color: #858ba3;
+            font-size: 13px;
+        }
+
+        .stat h2 {
+            margin-top: 10px;
+            font-size: 27px;
+        }
+
+        .panel {
+            margin-bottom: 23px;
+        }
+
+        .panel-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+
+        .panel-heading p {
+            color: #858ba3;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .filters {
+            display: flex;
+            align-items: end;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 23px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field label {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            padding: 12px;
+            border: 1px solid #dfe2ec;
+            border-radius: 7px;
+            background: white;
+            min-width: 180px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #7164e8;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        .primary,
+        .present-btn,
+        .absent-btn {
+            padding: 12px 17px;
+            border: none;
+            border-radius: 7px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: #675be0;
+        }
+
+        .primary:hover {
+            background: #5649c9;
+        }
+
+        .present-btn {
+            background: #16a36a;
+        }
+
+        .absent-btn {
+            background: #e34d5b;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 17px;
+        }
+
+        .toolbar p {
+            color: #858ba3;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 550px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #edf0f5;
+            font-size: 13px;
+        }
+
+        th {
+            color: #858ba3;
+            background: #f8f9fc;
+            white-space: nowrap;
+        }
+
+        .attendance-save {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        #attendanceMessage {
+            color: #858ba3;
+            font-size: 13px;
+        }
+
+        [hidden],
+        .hidden {
+            display: none !important;
+        }
+
+        .empty {
+            text-align: center;
+            color: #858ba3;
+            padding: 25px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            padding: 15px;
+        }
+
+        @media(max-width: 950px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .sidebar {
+                width: 215px;
+            }
+        }
+
+        @media(max-width: 650px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .sidebar .nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .sidebar .nav-title {
+                width: 100%;
+            }
+
+            .logout {
+                margin-top: 15px;
+            }
+
+            .main {
+                padding: 17px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .welcome i {
+                display: none;
+            }
+
+            .welcome {
+                padding: 20px;
+            }
+
+            .stat {
+                padding: 16px;
+            }
+
+            .stat h2 {
+                font-size: 23px;
+            }
+        }
+
+        @media(max-width: 380px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+
+            <div>
+                <h2>SmartSphere</h2>
+                <span>Campus Management</span>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class="avatar" id="moduleAvatar">SS</div>
+
+            <div>
+                <h3 id="moduleUserName">User</h3>
+                <p id="moduleUserRole">Student</p>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <p class="nav-title">MAIN MENU</p>
+
+            <a href="student.html" id="dashboardLink">
+                <i class="fas fa-th-large"></i> Dashboard
+            </a>
+
+            <a href="attendance.html" class="active">
+                <i class="fas fa-calendar-check"></i> Attendance
+            </a>
+
+            <a href="materials.html">
+                <i class="fas fa-book-open"></i> Study Materials
+            </a>
+
+            <a href="assignments.html">
+                <i class="fas fa-file-alt"></i> Assignments
+            </a>
+        </nav>
+
+        <button class="logout" id="moduleLogout">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Attendance Management</h1>
+                <p>Manage and monitor student attendance.</p>
+            </div>
+
+            <div class="date">
+                <i class="far fa-calendar-alt"></i>
+                <span id="currentDate"></span>
+            </div>
+
+        </header>
+
+        <section class="welcome">
+
+            <div>
+                <span>ACADEMIC MANAGEMENT</span>
+
+                <h2 id="welcomeHeading">
+                    Student Attendance
+                </h2>
+
+                <p id="welcomeDescription">
+                    View and manage attendance records.
+                </p>
+            </div>
+
+            <i class="fas fa-clipboard-check"></i>
+
+        </section>
+
+        <section class="stats">
+
+            <div class="stat">
+                <p>Total Students</p>
+                <h2 id="totalStudents">0</h2>
+            </div>
+
+            <div class="stat">
+                <p>Present</p>
+                <h2 id="presentCount">0</h2>
+            </div>
+
+            <div class="stat">
+                <p>Absent</p>
+                <h2 id="absentCount">0</h2>
+            </div>
+
+            <div class="stat">
+                <p>Attendance Rate</p>
+                <h2 id="attendanceRate">0%</h2>
+            </div>
+
+        </section>
+
+        <section class="panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <h2 id="panelTitle">
+                        Attendance Records
+                    </h2>
+
+                    <p id="panelDescription">
+                        Select a class and date.
+                    </p>
+                </div>
+
+                <i class="fas fa-calendar-check"></i>
+
+            </div>
+
+            <div class="filters" id="teacherFilters">
+
+                <div class="field">
+                    <label for="classSelect">
+                        Select Class
+                    </label>
+
+                    <select id="classSelect">
+                        <option value="">Loading classes...</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="attendanceDate">
+                        Attendance Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="attendanceDate"
+                    >
+                </div>
+
+                <button
+                    type="button"
+                    class="primary"
+                    id="loadAttendanceBtn"
+                >
+                    <i class="fas fa-search"></i>
+                    Load Students
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <div>
+                    <h3 id="selectedClassHeading">
+                        Select a Class
+                    </h3>
+
+                    <p id="attendanceStatusText">
+                        Attendance information
+                    </p>
+                </div>
+
+                <div class="actions" id="teacherActions">
+
+                    <button
+                        type="button"
+                        class="present-btn"
+                        id="markAllPresent"
+                    >
+                        <i class="fas fa-check"></i>
+                        All Present
+                    </button>
+
+                    <button
+                        type="button"
+                        class="absent-btn"
+                        id="markAllAbsent"
+                    >
+                        <i class="fas fa-times"></i>
+                        All Absent
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Student ID / Date</th>
+                            <th>Student Name / Class</th>
+                            <th>Attendance Status</th>
+                            <th>Date / Details</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="attendanceTableBody">
+
+                        <tr>
+                            <td colspan="5" class="empty">
+                                Loading attendance information...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="attendance-save" id="teacherSaveArea">
+
+                <span id="attendanceMessage">
+                    Changes are not saved yet.
+                </span>
+
+                <button
+                    type="button"
+                    class="primary"
+                    id="saveAttendanceBtn"
+                >
+                    <i class="fas fa-save"></i>
+                    Save Attendance
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <h2>Attendance History</h2>
+
+                    <p>
+                        Previously saved attendance records.
+                    </p>
+                </div>
+
+                <i class="fas fa-history"></i>
+
+            </div>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Student</th>
+                            <th>Class</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="attendanceHistoryBody">
+
+                        <tr>
+                            <td colspan="5" class="empty">
+                                Loading attendance history...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            © 2026 SmartSphere Campus Management System. All rights reserved.
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/attendance.js"></script>
+
+</body>
+</html>
